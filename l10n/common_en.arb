@@ -1,0 +1,20 @@
+{
+  "settingsTheme": "Theme",
+  "settingsThemeSystem": "System",
+  "settingsThemeLight": "Light",
+  "settingsThemeDark": "Dark",
+  "settingsLanguage": "Language",
+  "settingsUiStyle": "Interface style",
+  "settingsUiStyleDesc": "Expressive uses rounder shapes, bolder titles and a floating navigation bar. Material 3 is the standard look with a full-width bar.",
+  "settingsUiStyleMaterial3": "Material 3",
+  "settingsUiStyleExpressive": "Expressive",
+  "settingsNavPlacement": "Navigation position",
+  "settingsNavPlacementDesc": "Bottom everywhere, at the side on wide screens such as unfolded foldables, tablets and desktop, or at the side everywhere (not recommended on phones).",
+  "settingsNavPlacementBottom": "Bottom",
+  "settingsNavPlacementSideOnWide": "Side on wide",
+  "settingsNavPlacementSide": "Side",
+  "settingsRailSide": "Side navigation position",
+  "settingsRailSideDesc": "Which side of the window the navigation rail sits on.",
+  "settingsRailSideLeft": "Left",
+  "settingsRailSideRight": "Right"
+}

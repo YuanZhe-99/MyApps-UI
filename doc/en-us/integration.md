@@ -14,3 +14,8 @@ sibling checkout before publication. Do not commit those machine-local overrides
 Profile consumers add `packages/myapps_ui/packages/myapps_profile` as a path dependency.
 Keep existing profile imports as re-export shims and storage/UI entry points as adapters.
 MyVidComp updates the shared checkout but has no profile dependency or new profile UI.
+
+Settings consumers adopt individual controls from `myapps_ui`; app providers and
+routes remain unchanged. Check shared ARB values with
+`python3 packages/myapps_ui/tool/common_l10n.py --check .` in an ARB-based app.
+MyVidComp retains its own AppText catalog and delegates ChoiceField rendering only.

@@ -1,0 +1,20 @@
+{
+  "settingsTheme": "主題",
+  "settingsThemeSystem": "跟隨系統",
+  "settingsThemeLight": "淺色",
+  "settingsThemeDark": "深色",
+  "settingsLanguage": "語言",
+  "settingsUiStyle": "介面風格",
+  "settingsUiStyleDesc": "Expressive 使用更圓潤的形狀、更粗的標題和懸浮導覽列。Material 3 為標準外觀，使用通欄導覽列。",
+  "settingsUiStyleMaterial3": "Material 3",
+  "settingsUiStyleExpressive": "Expressive",
+  "settingsNavPlacement": "導覽列位置",
+  "settingsNavPlacementDesc": "全部放在底部；寬螢幕（摺疊螢幕展開、平板、桌面）時放在側邊；或全部放在側邊（手機上不建議）。",
+  "settingsNavPlacementBottom": "全部底部",
+  "settingsNavPlacementSideOnWide": "寬螢幕側邊",
+  "settingsNavPlacementSide": "全部側邊",
+  "settingsRailSide": "側邊導覽列位置",
+  "settingsRailSideDesc": "側邊導覽列顯示在視窗的哪一側。",
+  "settingsRailSideLeft": "左側",
+  "settingsRailSideRight": "右側"
+}

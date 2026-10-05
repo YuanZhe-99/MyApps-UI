@@ -6,4 +6,6 @@
 
 P2 共享导航绘制和实际内容空间，见 [navigation.md](navigation.md)。
 `myapps_profile` 通过适配提供资料和头像组件，见 [profile.md](profile.md)。
+设置控件和公共 ARB 目录工具见 [settings.md](settings.md)。公共目录合入应用语言文件，
+运行时本地化代理和应用差异由应用保留。
 MyApps-DATA 继续负责同步、备份和传输引擎。

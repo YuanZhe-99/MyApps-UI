@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3
+
+P4: shared settings sections, segmented and responsive choice controls; common
+appearance/navigation ARB catalogs with validation and synchronization tooling.
+All four extraction milestones are complete; current contracts live in concept docs.
+
 ## 0.1.2
 
 P3: add myapps_profile with profile model/merge, adapter-backed queued repository,

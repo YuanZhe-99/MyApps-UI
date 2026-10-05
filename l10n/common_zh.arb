@@ -1,0 +1,20 @@
+{
+  "settingsTheme": "主题",
+  "settingsThemeSystem": "跟随系统",
+  "settingsThemeLight": "浅色",
+  "settingsThemeDark": "深色",
+  "settingsLanguage": "语言",
+  "settingsUiStyle": "界面风格",
+  "settingsUiStyleDesc": "Expressive 使用更圆润的形状、更粗的标题和悬浮导航栏。Material 3 为标准外观，使用通栏导航栏。",
+  "settingsUiStyleMaterial3": "Material 3",
+  "settingsUiStyleExpressive": "Expressive",
+  "settingsNavPlacement": "导航栏位置",
+  "settingsNavPlacementDesc": "全部放在底部；宽屏（折叠屏展开、平板、桌面）时放在侧边；或全部放在侧边（手机上不推荐）。",
+  "settingsNavPlacementBottom": "全部底部",
+  "settingsNavPlacementSideOnWide": "宽屏侧边",
+  "settingsNavPlacementSide": "全部侧边",
+  "settingsRailSide": "侧边导航栏位置",
+  "settingsRailSideDesc": "侧边导航栏显示在窗口的哪一侧。",
+  "settingsRailSideLeft": "左侧",
+  "settingsRailSideRight": "右侧"
+}
