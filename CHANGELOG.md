@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+P3: add myapps_profile with profile model/merge, adapter-backed queued repository,
+avatar image processing, localized editor and shared avatar/header rendering.
+Existing JSON, unique image names, field timestamps and app-independent profiles remain compatible.
+
 ## 0.1.1
 
 P2: shared classic/floating navigation and scrollable rails, widget-icon destinations,

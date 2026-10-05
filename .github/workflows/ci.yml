@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package: [myapps_ui, myapps_adaptive]
+        package: [myapps_ui, myapps_adaptive, myapps_profile]
     defaults:
       run:
         working-directory: packages/${{ matrix.package }}
@@ -25,6 +25,6 @@ jobs:
       - run: dart format --output=none --set-exit-if-changed lib test
       - run: flutter analyze
       - run: flutter test
-        if: matrix.package == 'myapps_ui'
+        if: matrix.package != 'myapps_adaptive'
       - run: dart test
         if: matrix.package == 'myapps_adaptive'

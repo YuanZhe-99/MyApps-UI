@@ -10,3 +10,5 @@
 0.1.0 implements P1; 0.1.1 implements P2. Profile extraction remains P3.
 P2 reads measured content constraints without subtracting a rail twice.
 Hinge-aware layout and text scaling must be verified before changing split behavior.
+
+0.1.2 implements P3: shared profile and avatar components with app-owned adapters.

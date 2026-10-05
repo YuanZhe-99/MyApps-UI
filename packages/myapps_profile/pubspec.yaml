@@ -1,5 +1,5 @@
-name: myapps_ui
-description: Shared My Apps theme construction.
+name: myapps_profile
+description: Shared My Apps profile repository and avatar components.
 version: 0.1.2
 publish_to: none
 environment:
@@ -8,6 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  image: ^4.8.0
+  path: ^1.9.0
+  uuid: ^4.5.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
