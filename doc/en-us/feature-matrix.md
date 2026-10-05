@@ -1,15 +1,14 @@
-# Consumer matrix
+# Component responsibilities
 
-| Consumer | Brand seed | Navigation | Business layout |
-|---|---|---|---|
-| MyAnime | indigo | App shell and user placement | Anime lists and statistics |
-| MyDay | indigo | App shell and user placement | Todo, finance, weight, intimacy |
-| MyDevice | blue | App shell and user placement | Devices, services, networks, data sets |
-| MyNihongo | sakura pink | App shell and user placement | Learning, reference tables, exercises |
-| MyTranscribe | teal | App shell and user placement | Jobs, models, transcript viewer |
-| MyVidComp | original GUI seed | Existing rail/bar layout | Conversion, progress, review |
+| Component area | Shared responsibility | Application responsibility |
+|---|---|---|
+| Theme | Base theme and Expressive overlay | Brand seed, theme selection and customizations |
+| Adaptive layout | Geometry, capacity and partition calculations | Content constraints and layout policy |
+| Navigation | Shell rendering and measured content bounds | Destinations, routes, badges and persisted placement |
+| Settings | Sections, segments and labelled choice controls | State, persistence, platform gates and business rows |
+| Profile | Adapter-backed profile and avatar components | Data, storage, entry points and localization |
+| Common translations | Shared appearance and navigation ARB values | Runtime delegates and application-specific wording |
 
-The five main apps use the shared base theme. MyVidComp retains its own Material 3
-base customizations and applies the shared Expressive overlay. Navigation destinations,
-routes, badges, settings persistence and profile data stay app-owned in 0.1.0.
-Consumer adoption is recorded in each application's version history after validation.
+Applications may adopt individual packages and components independently. The library
+does not prescribe a brand, route structure or business layout. Record actual usage
+and integration validation in each application's documentation.

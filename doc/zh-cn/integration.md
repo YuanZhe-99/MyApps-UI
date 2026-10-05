@@ -12,8 +12,10 @@
 
 资料使用方添加 `packages/myapps_ui/packages/myapps_profile` 路径依赖。
 原资料导入作为重新导出包装，存储和 UI 入口作为适配保留。
-MyVidComp 更新共享库指针，不添加资料依赖或新资料界面。
+不需要资料组件的应用可以省略此依赖。
 
 设置使用方按需接入 `myapps_ui` 的独立控件，应用状态和路由保持不变。
 采用 ARB 的应用运行 `python3 packages/myapps_ui/tool/common_l10n.py --check .`
-检查公共值。MyVidComp 保留 AppText 目录，只委托 ChoiceField 显示。
+检查公共值。使用其他本地化系统的应用可以只接入控件，不使用 ARB 工具。
+
+选用的包、适配器和应用专用策略记录在应用自身文档中。共享文档描述可复用契约。

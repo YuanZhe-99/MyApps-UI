@@ -3,10 +3,10 @@
 ## Components
 
 `MyAppsSettingsSection` renders a heading and caller-owned rows. Heading padding is
-configurable so MyDay keeps its existing spacing. `MyAppsSettingsSegments` wraps a
+configurable to accommodate application spacing. `MyAppsSettingsSegments` wraps a
 single-choice Material segmented button with unchanged values, icons and selection
 callbacks. `MyAppsSettingsChoice` provides the labelled segmented/dropdown control
-used by MyVidComp, including disabled controls and optional help. Its width threshold
+with disabled controls and optional help. Its width threshold
 and maximum segment count are explicit parameters; applications retain their policy.
 
 Applications own settings state, persistence, routing, platform gates and business

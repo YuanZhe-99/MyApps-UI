@@ -12,6 +12,8 @@ implementation to confirm behavior before editing.
 
 - Fetch both remotes and check divergence before editing.
 - Preserve unrelated work and keep changes scoped.
+- Keep shared docs independent of consumer lists and adoption status; document
+  concrete integrations in the corresponding application repository.
 - Update English and Chinese documentation together: matching files, headings,
   tables and examples. English is authoritative.
 - Each function, constructor, getter and significant callback needs concise

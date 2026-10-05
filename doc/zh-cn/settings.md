@@ -2,9 +2,9 @@
 
 ## 组件
 
-`MyAppsSettingsSection` 显示标题和应用提供的设置行，标题边距可配置，MyDay 保留
-原间距。`MyAppsSettingsSegments` 包装单选 Material 分段按钮，保留值、图标和
-选择回调。`MyAppsSettingsChoice` 提供 MyVidComp 使用的带标签分段或下拉控件，
+`MyAppsSettingsSection` 显示标题和应用提供的设置行，标题边距可配置以适应应用间距。
+`MyAppsSettingsSegments` 包装单选 Material 分段按钮，保留值、图标和
+选择回调。`MyAppsSettingsChoice` 提供带标签分段或下拉控件，
 支持禁用及可选帮助文字。宽度阈值和最大分段数量是明确参数，应用保留选择策略。
 
 应用负责设置状态、存储、路由、平台条件和业务行。公共组件不依赖 Riverpod、存储
