@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4
+
+Remove an accidentally tracked Python cache and ignore Python generated files.
+Consumers use this corrected P4 release.
+
 ## 0.1.3
 
 P4: shared settings sections, segmented and responsive choice controls; common
