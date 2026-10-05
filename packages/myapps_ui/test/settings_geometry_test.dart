@@ -6,6 +6,35 @@ import 'package:myapps_ui/myapps_ui.dart';
 /// Inputs: None. Returns: None. Side effects: Registers tests.
 /// Notes: Uses actual parent width and scaled text.
 void main() {
+  testWidgets('fold settings pane keeps three navigation choices horizontal', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: SizedBox(
+            width: 330,
+            child: MyAppsSettingsSegments<int>(
+              segments: const [
+                ButtonSegment(value: 1, label: Text('全部底邊')),
+                ButtonSegment(value: 2, label: Text('寬螢幕側邊')),
+                ButtonSegment(value: 3, label: Text('全部側邊')),
+              ],
+              selected: const {1},
+              onSelectionChanged: (_) {},
+            ),
+          ),
+        ),
+      ),
+    );
+    final control = tester.widget<SegmentedButton<int>>(
+      find.byType(SegmentedButton<int>),
+    );
+    expect(control.direction, Axis.horizontal);
+    expect(control.showSelectedIcon, false);
+    expect(tester.getSize(find.byType(SegmentedButton<int>)).width, 330);
+    expect(tester.takeException(), isNull);
+  });
   testWidgets('settings segments fill their pane and use equal widths', (
     tester,
   ) async {

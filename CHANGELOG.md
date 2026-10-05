@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.7
+
+Keep compact settings choices horizontal using centered, two-line labels before
+vertical fallback. Hide the selected check by default and retain selected semantics.
+
 ## 0.1.6
 
 Full-width settings choices, text-scale-aware vertical fallback and shared

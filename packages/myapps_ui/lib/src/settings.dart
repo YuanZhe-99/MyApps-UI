@@ -61,20 +61,21 @@ class MyAppsSettingsSegments<T> extends StatelessWidget {
     required this.segments,
     required this.selected,
     required this.onSelectionChanged,
-    this.showSelectedIcon = true,
+    this.showSelectedIcon = false,
   });
 
   /// Purpose: Render a single-choice Material control.
   /// Inputs: `context`.
   /// Returns: A segmented button.
   /// Side effects: Forwards user selections to the supplied callback.
-  /// Notes: Fills bounded width; long text uses vertical options. Values stay caller-owned.
+  /// Notes: Prefers equal horizontal options with two-line labels before vertical fallback.
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, constraints) {
       final theme = Theme.of(context);
       final textStyle = theme.textTheme.labelLarge!;
-      var requiredWidth = 0.0;
+      var horizontal = true;
+      final cellWidth = constraints.maxWidth / segments.length;
       for (final segment in segments) {
         final label = segment.label;
         final painter = TextPainter(
@@ -84,20 +85,42 @@ class MyAppsSettingsSegments<T> extends StatelessWidget {
           ),
           textDirection: Directionality.of(context),
           textScaler: MediaQuery.textScalerOf(context),
-        )..layout();
-        // Allow horizontal padding and an icon slot, including the check mark.
-        final width =
-            painter.width +
-            32 +
+          maxLines: 2,
+        );
+        final available =
+            cellWidth -
+            24 -
             (segment.icon != null || showSelectedIcon ? 32 : 0);
-        if (width > requiredWidth) requiredWidth = width;
+        if (constraints.hasBoundedWidth) {
+          painter.layout(maxWidth: available > 0 ? available : 1);
+          if (available <= 0 || painter.didExceedMaxLines) horizontal = false;
+        }
         painter.dispose();
       }
-      final horizontal =
-          !constraints.hasBoundedWidth ||
-          requiredWidth * segments.length <= constraints.maxWidth;
       final button = SegmentedButton<T>(
-        segments: segments,
+        segments: [
+          for (final segment in segments)
+            ButtonSegment<T>(
+              value: segment.value,
+              icon: segment.icon,
+              enabled: segment.enabled,
+              tooltip: segment.tooltip,
+              label:
+                  segment.label is Text && (segment.label as Text).data != null
+                  ? Text(
+                      (segment.label as Text).data!,
+                      style: (segment.label as Text).style,
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                    )
+                  : segment.label,
+            ),
+        ],
+        style: const ButtonStyle(
+          padding: WidgetStatePropertyAll(
+            EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          ),
+        ),
         selected: selected,
         showSelectedIcon: showSelectedIcon,
         onSelectionChanged: onSelectionChanged,

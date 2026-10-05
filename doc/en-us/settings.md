@@ -5,7 +5,9 @@
 `MyAppsSettingsSegmentRow` owns the icon/title/description layout and 16-pixel
 horizontal choice inset. Theme, interface style and navigation preferences use
 this presentation. `MyAppsSettingsSegments` fills bounded pane width with equal
-segments; labels that cannot fit at the current text scale use vertical options.
+segments and centered labels wrapping to two lines. The selected check is hidden
+by default; Material selection styling and semantics remain. Vertical options are
+used only when two lines cannot fit at the current text scale.
 Applications inject values, localized text and persistence callbacks. Data and AI
 settings presentation belongs to the corresponding libraries.
 
