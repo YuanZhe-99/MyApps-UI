@@ -1,0 +1,9 @@
+name: myapps_adaptive
+description: Dart-only My Apps adaptive layout rules.
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: ^3.11.3
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^6.0.0
