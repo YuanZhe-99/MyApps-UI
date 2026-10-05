@@ -2,6 +2,13 @@
 
 ## Components
 
+`MyAppsSettingsSegmentRow` owns the icon/title/description layout and 16-pixel
+horizontal choice inset. Theme, interface style and navigation preferences use
+this presentation. `MyAppsSettingsSegments` fills bounded pane width with equal
+segments; labels that cannot fit at the current text scale use vertical options.
+Applications inject values, localized text and persistence callbacks. Data and AI
+settings presentation belongs to the corresponding libraries.
+
 `MyAppsSettingsSection` renders a heading and caller-owned rows. Heading padding is
 configurable to accommodate application spacing. `MyAppsSettingsSegments` wraps a
 single-choice Material segmented button with unchanged values, icons and selection

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.6
+
+Full-width settings choices, text-scale-aware vertical fallback and shared
+icon/title/description rows for appearance and navigation preferences.
+
 ## 0.1.5
 
 P5: automatic/selected column resolution, arbitrary region layouts and designed

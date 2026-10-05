@@ -1,6 +1,6 @@
 name: myapps_ui
 description: Shared My Apps theme construction.
-version: 0.1.5
+version: 0.1.6
 publish_to: none
 environment:
   sdk: ^3.11.3

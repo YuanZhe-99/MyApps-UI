@@ -2,6 +2,11 @@
 
 ## 组件
 
+`MyAppsSettingsSegmentRow` 管理图标、标题、说明布局和选择控件的 16 像素水平边距。
+主题、界面风格和导航偏好使用此呈现。`MyAppsSettingsSegments` 以等宽选项撑满有界
+设置栏；当前字体比例下放不下的标签使用纵向选项。应用注入值、本地化文案和
+持久化回调。数据和 AI 设置呈现属于相应共享库。
+
 `MyAppsSettingsSection` 显示标题和应用提供的设置行，标题边距可配置以适应应用间距。
 `MyAppsSettingsSegments` 包装单选 Material 分段按钮，保留值、图标和
 选择回调。`MyAppsSettingsChoice` 提供带标签分段或下拉控件，

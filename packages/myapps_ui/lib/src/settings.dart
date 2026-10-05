@@ -68,13 +68,98 @@ class MyAppsSettingsSegments<T> extends StatelessWidget {
   /// Inputs: `context`.
   /// Returns: A segmented button.
   /// Side effects: Forwards user selections to the supplied callback.
-  /// Notes: Enum values and localization remain caller-owned.
+  /// Notes: Fills bounded width; long text uses vertical options. Values stay caller-owned.
   @override
-  Widget build(BuildContext context) => SegmentedButton<T>(
-    segments: segments,
-    selected: selected,
-    showSelectedIcon: showSelectedIcon,
-    onSelectionChanged: onSelectionChanged,
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final theme = Theme.of(context);
+      final textStyle = theme.textTheme.labelLarge!;
+      var requiredWidth = 0.0;
+      for (final segment in segments) {
+        final label = segment.label;
+        final painter = TextPainter(
+          text: TextSpan(
+            text: label is Text ? label.data ?? '' : '',
+            style: label is Text ? textStyle.merge(label.style) : textStyle,
+          ),
+          textDirection: Directionality.of(context),
+          textScaler: MediaQuery.textScalerOf(context),
+        )..layout();
+        // Allow horizontal padding and an icon slot, including the check mark.
+        final width =
+            painter.width +
+            32 +
+            (segment.icon != null || showSelectedIcon ? 32 : 0);
+        if (width > requiredWidth) requiredWidth = width;
+        painter.dispose();
+      }
+      final horizontal =
+          !constraints.hasBoundedWidth ||
+          requiredWidth * segments.length <= constraints.maxWidth;
+      final button = SegmentedButton<T>(
+        segments: segments,
+        selected: selected,
+        showSelectedIcon: showSelectedIcon,
+        onSelectionChanged: onSelectionChanged,
+        direction: horizontal ? Axis.horizontal : Axis.vertical,
+        expandedInsets: horizontal && constraints.hasBoundedWidth
+            ? EdgeInsets.zero
+            : null,
+      );
+      return !horizontal && constraints.hasBoundedWidth
+          ? SizedBox(width: constraints.maxWidth, child: button)
+          : button;
+    },
+  );
+}
+
+/// An icon, title, optional description and full-width settings choice.
+class MyAppsSettingsSegmentRow<T> extends StatelessWidget {
+  final Widget leading;
+  final String title;
+  final String? description;
+  final List<ButtonSegment<T>> segments;
+  final Set<T> selected;
+  final ValueChanged<Set<T>>? onSelectionChanged;
+
+  /// Purpose: Bind a complete settings row to application-owned values.
+  /// Inputs: Icon, text, options, selection and callback.
+  /// Returns: A settings row.
+  /// Side effects: None.
+  /// Notes: Storage and localization remain application-owned.
+  const MyAppsSettingsSegmentRow({
+    super.key,
+    required this.leading,
+    required this.title,
+    this.description,
+    required this.segments,
+    required this.selected,
+    required this.onSelectionChanged,
+  });
+
+  /// Purpose: Render consistent heading, spacing and choice geometry.
+  /// Inputs: `context`.
+  /// Returns: A settings row column.
+  /// Side effects: Forwards selection to the caller.
+  /// Notes: Choice width follows the containing settings pane.
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      ListTile(
+        leading: leading,
+        title: Text(title),
+        subtitle: description == null ? null : Text(description!),
+      ),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+        child: MyAppsSettingsSegments<T>(
+          segments: segments,
+          selected: selected,
+          onSelectionChanged: onSelectionChanged,
+        ),
+      ),
+    ],
   );
 }
 

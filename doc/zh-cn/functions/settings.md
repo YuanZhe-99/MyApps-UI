@@ -6,6 +6,7 @@
 |---|---|
 | MyAppsSettingsSection constructor/build | 绑定标题间距，显示应用提供的行 |
 | MyAppsSettingsSegments constructor/build | 显示并转发单选，不保存设置 |
+| MyAppsSettingsSegmentRow constructor/build | 用共享间距呈现图标、标题、说明和设置栏宽度选择控件 |
 | MyAppsSettingsChoice constructor/build | 绑定值、标签、帮助和应用宽度/数量策略 |
 | MyAppsSettingsChoice._segmented/_dropdown | 显示选定模式并转发启用的选择 |
 | tool/common_l10n.py synchronize/main | 验证或应用公共 ARB 值，提供 CLI 检查与写入模式 |
