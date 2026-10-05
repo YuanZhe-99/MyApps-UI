@@ -26,6 +26,7 @@ class MyAppsDestination {
 class MyAppsShellLayout extends InheritedWidget {
   final double contentWidth;
   final bool hasRail;
+  final Rect? contentBounds;
 
   /// Purpose: Publish measured shell content space.
   /// Inputs: `contentWidth`, `hasRail`, `child`.
@@ -36,6 +37,7 @@ class MyAppsShellLayout extends InheritedWidget {
     super.key,
     required this.contentWidth,
     required this.hasRail,
+    this.contentBounds,
     required super.child,
   });
 
@@ -54,7 +56,9 @@ class MyAppsShellLayout extends InheritedWidget {
   /// Notes: None.
   @override
   bool updateShouldNotify(MyAppsShellLayout oldWidget) =>
-      contentWidth != oldWidget.contentWidth || hasRail != oldWidget.hasRail;
+      contentWidth != oldWidget.contentWidth ||
+      hasRail != oldWidget.hasRail ||
+      contentBounds != oldWidget.contentBounds;
 }
 
 /// Reusable navigation rendering with a stable content slot across layout changes.
@@ -127,6 +131,16 @@ class MyAppsNavigationShell extends StatelessWidget {
                   return MyAppsShellLayout(
                     contentWidth: content.maxWidth,
                     hasRail: showRail,
+                    contentBounds: Rect.fromLTWH(
+                      showRail && !railOnRight
+                          ? constraints.maxWidth - content.maxWidth
+                          : 0,
+                      appBar == null
+                          ? 0
+                          : mq.padding.top + appBar!.preferredSize.height,
+                      content.maxWidth,
+                      content.maxHeight,
+                    ),
                     child: MediaQuery(
                       data: mq.copyWith(
                         viewPadding: mq.viewPadding.copyWith(

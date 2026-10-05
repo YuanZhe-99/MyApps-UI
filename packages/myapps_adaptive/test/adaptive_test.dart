@@ -7,6 +7,34 @@ import 'package:test/test.dart';
 /// Side effects: Registers tests.
 /// Notes: Window shape and content capacity are independent.
 void main() {
+  test('automatic and selected capacity never changes a saved choice', () {
+    expect(
+      resolveLayoutColumns(
+        allowSplit: true,
+        contentWidth: 1400,
+        minItemWidth: 320,
+      ),
+      4,
+    );
+    expect(
+      resolveLayoutColumns(
+        allowSplit: true,
+        contentWidth: 700,
+        minItemWidth: 320,
+        preference: 4,
+      ),
+      2,
+    );
+    expect(
+      resolveLayoutColumns(
+        allowSplit: false,
+        contentWidth: 1400,
+        minItemWidth: 320,
+        preference: 4,
+      ),
+      1,
+    );
+  });
   test('split thresholds and window orientations', () {
     expect(canSplitLayout(599, 600), isFalse);
     expect(canSplitLayout(600, 600), isTrue);

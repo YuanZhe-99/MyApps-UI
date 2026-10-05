@@ -1,5 +1,8 @@
 # 布局接口
 
+`resolveLayoutColumns` 根据分栏条件、实际宽度、最小条目宽度、间距和上限决定
+自动或用户选择的列数。零表示自动，其他值只在显示时限制，不修改应用存储。
+
 `canSplitLayout(width, height)`, `useNavigationRail(screenWidth)`,
 `columnCapacity(contentWidth, minItemWidth: ..., gap: ..., maxColumns: ...)`,
 `listRowCount(itemCount, columns)`.

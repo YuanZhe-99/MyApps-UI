@@ -105,3 +105,28 @@ int listRowCount(int itemCount, int columns) {
   final perRow = columns < 1 ? 1 : columns;
   return (itemCount + perRow - 1) ~/ perRow;
 }
+
+/// Purpose: Resolve automatic or user-selected columns against actual capacity.
+/// Inputs: Split gate, content width, item minimum, gap, ceiling and preference.
+/// Returns: A usable column count of at least one.
+/// Side effects: None.
+/// Notes: Zero means automatic; a constrained choice never rewrites preferences.
+int resolveLayoutColumns({
+  required bool allowSplit,
+  required double contentWidth,
+  required double minItemWidth,
+  int preference = listColumnsAuto,
+  double gap = listTileGap,
+  int maxColumns = listMaxColumns,
+}) {
+  if (!allowSplit) return 1;
+  final capacity = columnCapacity(
+    contentWidth,
+    minItemWidth: minItemWidth,
+    gap: gap,
+    maxColumns: maxColumns,
+  );
+  return preference == listColumnsAuto
+      ? capacity
+      : preference.clamp(1, capacity);
+}

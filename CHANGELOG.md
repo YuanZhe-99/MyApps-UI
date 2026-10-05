@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5
+
+P5: automatic/selected column resolution, arbitrary region layouts and designed
+master/detail panes with separating display features and measured shell bounds.
+
 ## 0.1.4
 
 Remove an accidentally tracked Python cache and ignore Python generated files.

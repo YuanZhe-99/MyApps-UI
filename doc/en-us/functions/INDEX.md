@@ -6,6 +6,8 @@
 | packages/myapps_ui/lib/src/appearance.dart | [theme](theme.md) |
 | packages/myapps_ui/lib/src/navigation.dart | [navigation](navigation.md) |
 | packages/myapps_ui/lib/src/settings.dart | [settings](settings.md) |
+| packages/myapps_ui/lib/src/panes.dart | [panes](panes.md) |
+| packages/myapps_ui/lib/src/regions.dart | [panes](panes.md) |
 | packages/myapps_adaptive/lib/src/adaptive_layout.dart | [adaptive](adaptive.md) |
 | packages/myapps_profile/lib/src/profile_data.dart | [profile](profile.md) |
 | packages/myapps_profile/lib/src/profile_merge.dart | [profile](profile.md) |

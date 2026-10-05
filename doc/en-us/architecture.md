@@ -1,5 +1,7 @@
 # Architecture
 
+Wide-screen pane partitioning is documented in [panes.md](panes.md).
+
 Three packages ship from one repository and share a version. `myapps_ui` depends
 only on Flutter; `myapps_adaptive` imports only Dart core. Neither owns persistence,
 routing, localization or Riverpod providers. Apps retain their public theme facade

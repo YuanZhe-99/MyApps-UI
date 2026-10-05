@@ -1,5 +1,7 @@
 # 架构
 
+宽屏分区见 [panes.md](panes.md)。
+
 三个包在同一仓库中开发并使用统一版本。`myapps_ui` 只依赖 Flutter；
 `myapps_adaptive` 只使用 Dart 核心库。它们不负责持久化、路由、本地化或 Riverpod 状态。
 应用保留公开主题包装和布局入口，提供品牌色以及业务页面的尺寸约束。
