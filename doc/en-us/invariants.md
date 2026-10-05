@@ -8,6 +8,6 @@ Navigation eligibility is width-only at 600. Actual placement remains app-owned.
 Capacity uses the content width, minimum item width, gap and maximum column count.
 Existing settings files and sync formats are unaffected.
 
-Legacy app `shellContentWidth` still predicts a rail from width. Correcting it to
-use actual navigation placement belongs to the next navigation-container milestone;
-this initial extraction preserves that behavior.
+App pages now pass their context to content-width helpers, reading measured shell
+space. Context-free legacy helpers retain their width-only behavior for compatibility.
+Routes outside the shell use full window width without an imaginary rail subtraction.

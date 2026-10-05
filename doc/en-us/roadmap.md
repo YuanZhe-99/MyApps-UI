@@ -7,6 +7,6 @@
 | P3 | Profile model, merge, repository adapters, avatar editor | Old JSON, sync, restore, delayed image arrival |
 | P4 | Settings components, common translations and tooling | Independent consumer adoption and documentation parity |
 
-0.1.0 implements P1. No placeholder profile package or navigation framework is shipped.
-P2 must resolve the legacy width-based rail prediction without subtracting a rail twice.
+0.1.0 implements P1; 0.1.1 implements P2. Profile extraction remains P3.
+P2 reads measured content constraints without subtracting a rail twice.
 Hinge-aware layout and text scaling must be verified before changing split behavior.

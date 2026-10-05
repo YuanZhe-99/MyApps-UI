@@ -40,3 +40,7 @@ the library commit to both remotes before any application pointer update.
 A release must be available on both remotes and consumers pin its tagged commit.
 Ask before pushes unless the user has already authorized them; application
 release versions remain the user's decision.
+
+Each completed P milestone advances application patch versions by 0.0.1, per
+the owner. Add accurate co-author attribution for agents that materially
+contributed; never list a model that did not participate in the commit.
