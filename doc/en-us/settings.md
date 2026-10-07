@@ -22,6 +22,28 @@ Applications own settings state, persistence, routing, platform gates and busine
 rows. These widgets do not know Riverpod, storage or application models. Applications
 may adopt each component separately, including keeping a dialog-based picker.
 
+## Online API inputs
+
+`MyAppsEndpointField` validates that endpoint text has an allowed scheme
+(default `https`/`http`) and a host, shows caller-supplied invalid text inline
+and reports the parsed `Uri` (or null) through callbacks. Caller `errorText`,
+such as a transport-security refusal, takes precedence. An optional trailing
+widget shows caller-owned status. `MyAppsEndpointField.parse` exposes the same rule.
+
+`MyAppsSecretField` is obscured by default with a reveal/hide toggle whose tooltips
+are injected. Suggestions, autocorrect and IME learning are disabled and the value
+is never logged. A stored secret is never passed in: `hasSavedValue` shows a masked
+placeholder, and the clear action empties typed text and calls `onClear`; the
+application removes the stored value.
+
+`MyAppsConnectionTestRow` renders idle, testing (progress, button disabled),
+success and failure states with a caller-supplied message announced as a live
+region. `onTest` performs the test; the widget contains no network code.
+
+`MyAppsPrivacyNotice` renders an icon, title, body, info or warning severity and an
+optional action for disclosures such as data leaving the device. All wording is
+supplied by the application or the consuming library.
+
 ## Common translations
 
 `l10n/common_<locale>.arb` owns the identical appearance/navigation strings for
@@ -39,6 +61,7 @@ and ignores languages an application does not support. Run each application's
 ## Validation
 
 Widget tests verify selection callbacks, disabled controls, help and configurable
-spacing. Catalog tests cover drift, missing keys, unsupported languages and preserving
+spacing; online input tests cover validation, obscuring, placeholder, clear, test
+states, notice actions and tap targets. Catalog tests cover drift, missing keys, unsupported languages and preserving
 application-owned entries. Application settings and full regression suites verify
 that controls still write through their original providers.

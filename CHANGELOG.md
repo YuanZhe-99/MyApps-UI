@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.8
+
+Generic online API settings primitives: validated endpoint field, obscured secret
+field with saved-value placeholder and clear action, connection test status row
+and privacy notice banner. All wording, state and network work are caller-owned.
+
 ## 0.1.7
 
 Keep compact settings choices horizontal using centered, two-line labels before
